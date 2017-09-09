@@ -1,7 +1,7 @@
 <template>
   <div class="context-menu">
-    <ul class="context-menu-list" :class="[menu.class.color, {'rounded': menu.class.rounded}]">
-      <li v-for="op in menu.ops" :key="op.id" class="context-menu-list-item" @click="op.func">
+    <ul class="context-menu-list" :class="[classes.color, {'rounded': classes.rounded}]">
+      <li v-for="op in menu.items" :key="op.text" class="context-menu-list-item" @click="op.func">
       {{op.text}}
       {{op.func}}
       </li>
@@ -21,6 +21,10 @@ export default {
     return {
       x: '',
       y: '',
+      classes: {
+        color: '',
+        rounded: ''
+      },
       myMenu: '',
       default: {
         font: {
@@ -49,7 +53,20 @@ export default {
     hideMenu() {
       this.myMenu.style.display = 'none';
     },
-
+    setClasses() {
+      if (this.menu.hasOwnProperty('class')) {
+        console.log(this.menu);
+        (this.menu.class.hasOwnProperty('color'))
+          ? this.classes.color = this.menu.class.color
+          : this.classes.color = this.default.class.color;
+        (this.menu.class.hasOwnProperty('rounded'))
+          ? this.classes.rounded = this.menu.class.rounded
+          : this.classes.rounded = this.default.class.rounded
+      } else {
+        this.menu.class = {};
+        this.setClasses();
+      }
+    },
     setFont() {
       if (this.menu.hasOwnProperty('font')) {
         (this.menu.font.hasOwnProperty('family'))
@@ -74,6 +91,7 @@ export default {
       this.y = event.clientY;
       this.setPositions();
       this.setFont();
+      this.setClasses();
       this.showMenu();
     });
     document.addEventListener('click', (event) =>{

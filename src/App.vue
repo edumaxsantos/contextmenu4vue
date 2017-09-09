@@ -29,14 +29,12 @@ export default {
       }],
       myMenu: {
         class: {
-          color: 'primary',
-          rounded: false
         },
         /*font: {
           family: 'Roboto',
           size: 12
         },*/
-        ops: [{
+        items: [{
           text: 'op1',
           icon: null,
           func() {

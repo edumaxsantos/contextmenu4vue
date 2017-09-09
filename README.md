@@ -1,6 +1,15 @@
 # vue-contextmenu
 
-> Context Menus with Vue.js (vue2.4)
+> Context Menus with [Vue.js](https://github.com/vuejs/vue) (vue2.4)
+
+# Warning
+**This component is still being written so if it's not working the way you want, I'm still working on it.**
+
+# Menu
+[Build Setup](#build-setup)
+[How to use](#how-to-use)
+[Basic Context Menu](#basic-context-menu)
+[License](#license)
 
 ## Build Setup
 
@@ -36,7 +45,24 @@ components: {
 ``` html
 <context-menu :menu="myMenu"></context-menu>
 ```
-  
-  ## License
+
+## Basic Context Menu
+You only need to send an object to the component, so it will generate your own context menu.
+> But you to structure it?
+###### Okay, so there's only one key from your object that's actually needed. It's the ``` items ``` key.
+> Why is it needed?
+###### It's where you're going to place your items for the context menu. If you don't set it, there's no list to be rendered.
+> Alright. So how does this *items* key should look like?
+``` javascript
+items: [{
+  text: 'OP1' // text will hold the name of your item at your context menu.
+  icon: null // it's still not being used. so don't mind it
+  func() {}  // func() is where you'll send what your item should do when it's clicked
+}]
+```
+###### That's basically everything you need to set. *items* must be inside your **myMenu** (you can name it anything you want) object that's being passed as prop. Just check [How to use](#how-to-use)
+
+
+## License
 
 [MIT](http://opensource.org/licenses/MIT)
