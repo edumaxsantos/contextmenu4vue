@@ -17,5 +17,22 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
+## How to use
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+The same way you'd add any other vue component.
+- Copy *contentMenu.vue* to your components folder.
+- Add 
+``` javascript 
+    import contextMenu from './components/contextMenu' 
+``` 
+to your *App.vue*
+- Don't forget to also add it to your app's components. 
+``` javascript
+components: {
+    contextMenu
+  } 
+  ```
+  
+  ## License
+
+[MIT](http://opensource.org/licenses/MIT)
