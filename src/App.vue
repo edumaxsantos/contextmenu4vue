@@ -32,15 +32,24 @@ export default {
           color: 'primary',
           rounded: false
         },
+        /*font: {
+          family: 'Roboto',
+          size: 12
+        },*/
         ops: [{
           text: 'op1',
+          icon: null,
           func() {
-            console.log('oi');
+            console.log('im func 1');
           }
         }, {
           text: 'op2',
           func() {
-
+          }
+        }, {
+          text: 'third op',
+          icon: null,
+          func() {
           }
         }]
       }

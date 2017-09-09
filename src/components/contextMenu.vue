@@ -3,6 +3,7 @@
     <ul class="context-menu-list" :class="[menu.class.color, {'rounded': menu.class.rounded}]">
       <li v-for="op in menu.ops" :key="op.id" class="context-menu-list-item" @click="op.func">
       {{op.text}}
+      {{op.func}}
       </li>
     </ul>
   </div>
@@ -20,10 +21,23 @@ export default {
     return {
       x: '',
       y: '',
-      myMenu: ''
+      myMenu: '',
+      default: {
+        font: {
+          family: 'Arial, serif',
+          size: 12
+        },
+        class: {
+          color: 'secondary',
+          rounded: true
+        }
+      }
     }
   },
   methods: {
+    clicked(event) {
+      console.log(event);
+    },
     setPositions() {
       this.myMenu.style.top = this.y + 'px';
       this.myMenu.style.left = this.x + 'px';
@@ -34,18 +48,35 @@ export default {
     },
     hideMenu() {
       this.myMenu.style.display = 'none';
+    },
+
+    setFont() {
+      if (this.menu.hasOwnProperty('font')) {
+        (this.menu.font.hasOwnProperty('family'))
+          ? this.myMenu.style.fontFamily = this.menu.font.family 
+          : this.myMenu.style.fontFamily = this.default.font.family;
+        (this.menu.font.hasOwnProperty('size')) 
+          ? this.myMenu.style.fontSize = this.menu.font.size + 'px' 
+          : this.myMenu.style.fontSize = this.default.font.size + 'px';
+      } else {
+        this.menu.font = {};
+        this.setFont();
+      }
+      
     }
   },
   mounted() {
     this.myMenu = document.querySelector('.context-menu-list');
+    
     document.addEventListener('contextmenu', (event) => {
       event.preventDefault();
       this.x = event.clientX;
       this.y = event.clientY;
       this.setPositions();
+      this.setFont();
       this.showMenu();
     });
-    document.addEventListener('mousedown', (event) =>{
+    document.addEventListener('click', (event) =>{
       this.hideMenu();
     });
 
@@ -96,11 +127,23 @@ export default {
   background-color: rgba(39, 174, 96,1.0);
 }
 
+.blue {
+  background-color: rgba(52, 152, 219,1.0);
+  color: rgba(236, 240, 241, 1);
+}
+
+.blue .context-menu-list-item:hover {
+  background-color: rgba(41, 128, 185,1.0);
+}
+
 .context-menu-list-item {
-  margin: 2px 0;
+  margin: 2px 0 5px 0;
   box-sizing: border-box;
-  padding-left: 20px;
-  padding-right: 10px;
+  padding: 2px 10px 2px 20px;
+}
+
+.context-menu-list-item:last-child {
+  margin: 2px 0;
 }
 
 .context-menu-list-item:hover {
