@@ -1,9 +1,10 @@
 <template>
   <div id="app">
-    <select v-model="myMenu.class.color">
+    <select v-model="clas.color">
     <option v-for="op in themes" :key="op.name" :value="op.name" >{{op.name}}</option>
     </select>
-    <input type="checkbox" v-model="myMenu.class.rounded">Rounded?
+    <input type="checkbox" v-model="clas.rounded">Rounded?
+    <div style='width: 1000px; height: 1000px;'></div>
     <context-menu :menu="myMenu"></context-menu>
   </div>
 </template>
@@ -27,13 +28,12 @@ export default {
       }, {
         name: 'blue'
       }],
+      clas: {
+        color: '',
+        rounded: false
+      },
       myMenu: {
-        class: {
-        },
-        /*font: {
-          family: 'Roboto',
-          size: 12
-        },*/
+        class: {},
         items: [{
           text: 'op1',
           icon: null,
@@ -52,6 +52,9 @@ export default {
         }]
       }
     }
+  },
+  mounted() {
+    this.myMenu.class = this.clas;
   }
 }
 </script>

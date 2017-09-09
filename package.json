@@ -1,6 +1,6 @@
 {
   "name": "vue-contextmenu",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Context Menus with Vue.js (vue2.4)",
   "author": "Eduardo Santos <edumaxsantos@gmail.com>",
   "private": true,
