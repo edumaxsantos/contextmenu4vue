@@ -32,6 +32,10 @@ components: {
     contextMenu
   } 
   ```
+- And add your tag anywhere
+``` html
+<context-menu :menu="myMenu"></context-menu>
+```
   
   ## License
 
