@@ -1,9 +1,9 @@
 {
-  "name": "vue-contextmenu",
+  "name": "contextmenu2vue",
   "version": "0.1.0",
   "description": "Context Menus with Vue.js (vue2.4)",
   "author": "Eduardo Santos <edumaxsantos@gmail.com>",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
