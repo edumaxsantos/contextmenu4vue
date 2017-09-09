@@ -30,11 +30,11 @@ npm run build --report
 
 The same way you'd add any other vue component.
 - Copy *contentMenu.vue* to your components folder.
-- Add 
+- Add the import below to your *App.vue*
 ``` javascript 
     import contextMenu from './components/contextMenu' 
 ``` 
-to your *App.vue*
+
 - Don't forget to also add it to your app's components. 
 ``` javascript
 components: {
