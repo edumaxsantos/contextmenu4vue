@@ -49,9 +49,11 @@ components: {
 ## Basic Context Menu
 You only need to send an object to the component, so it will generate your own context menu.
 > But you to structure it?
-###### Okay, so there's only one key from your object that's actually needed. It's the ``` items ``` key.
+>
+Okay, so there's only one key from your object that's actually needed. It's the ``` items ``` key.
 > Why is it needed?
-###### It's where you're going to place your items for the context menu. If you don't set it, there's no list to be rendered.
+>
+It's where you're going to place your items for the context menu. If you don't set it, there's no list to be rendered.
 > Alright. So how does this *items* key should look like?
 ``` javascript
 items: [{
@@ -60,7 +62,7 @@ items: [{
   func() {}  // func() is where you'll send what your item should do when it's clicked
 }]
 ```
-###### That's basically everything you need to set. *items* must be inside your **myMenu** (you can name it anything you want) object that's being passed as prop. Just check [How to use](#how-to-use)
+That's basically everything you need to set. *items* must be inside your **myMenu** (you can name it anything you want) object that's being passed as prop. Just check [How to use](#how-to-use)
 
 
 ## License
