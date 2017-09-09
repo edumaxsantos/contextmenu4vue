@@ -6,10 +6,10 @@
 **This component is still being written so if it's not working the way you want, I'm still working on it.**
 
 # Menu
-[Build Setup](#build-setup)
-[How to use](#how-to-use)
-[Basic Context Menu](#basic-context-menu)
-[License](#license)
+* [Build Setup](#build-setup)
+* [How to use](#how-to-use)
+* [Basic Context Menu](#basic-context-menu)
+* [License](#license)
 
 ## Build Setup
 
