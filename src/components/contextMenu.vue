@@ -20,7 +20,11 @@ export default {
   name: 'contextMenu',
   props: {
     menu: {
-      type: Object
+      type: Object,
+      required: true
+    },
+    context: {
+      required: true
     }
   },
   data () {
@@ -103,20 +107,28 @@ export default {
           item.style.display = 'none';
         });
       }
-    }
-  },
-  mounted() {
-    this.myMenu = document.querySelector('.context-menu-list');
-    this.mySubMenu = document.querySelectorAll('.context-submenu-list');
-    document.addEventListener('contextmenu', (event) => {
-      event.preventDefault();
+    },
+    setMenu(event) {
       this.x = event.clientX;
       this.y = event.clientY;
       this.setFont();
       this.setClasses();
       this.setPositions();
       this.showMenu();
-    });
+    }
+  },
+  mounted() {
+    this.myMenu = document.querySelector('.context-menu-list');
+    this.mySubMenu = document.querySelectorAll('.context-submenu-list');
+
+    window.addEventListener('contextmenu', (event) => {
+      if (event.target === this.context) {
+        event.preventDefault();
+        this.setMenu(event);
+      } else
+      this.hideMenu();
+    })
+    
     document.addEventListener('click', (event) =>{
       this.hideMenu();
     });
