@@ -1,9 +1,15 @@
 <template>
   <div class="context-menu">
     <ul class="context-menu-list" :class="[classes.color, {'rounded': classes.rounded}]">
-      <li v-for="op in menu.items" :key="op.text" class="context-menu-list-item" @click="op.func">
+      <li v-for="op in menu.items" :key="op.text" class="context-menu-list-item" @click="op.func" @mouseover="showSubMenu(op.submenu)" @mouseout="hideSubMenu(op.submenu)">
       {{op.text}}
       {{op.description}}
+      <ul v-if="op.hasOwnProperty('submenu')" class="context-submenu-list" :class="[classes.color, {'rounded': classes.rounded}]">
+        <li v-for="a in op.submenu.items" :key="a.text" class="context-menu-list-item">
+        {{a.text}}
+        {{a.description}}
+        </li>
+      </ul>
       </li>
     </ul>
   </div>
@@ -26,6 +32,7 @@ export default {
         rounded: ''
       },
       myMenu: '',
+      mySubMenu: '',
       default: {
         font: {
           family: 'Arial, serif',
@@ -79,12 +86,28 @@ export default {
       } else {
         this.menu.font = {};
         this.setFont();
+      }  
+    },
+    showSubMenu(op) {
+      if (op){
+        this.mySubMenu.forEach((item) => {
+          item.style.top = this.y + 'px';
+          item.style.left = this.x + 80 + 'px';
+          item.style.display = 'inline-block';
+        })
       }
-      
+    },
+    hideSubMenu(op) {
+      if (op) {
+        this.mySubMenu.forEach((item) => {
+          item.style.display = 'none';
+        });
+      }
     }
   },
   mounted() {
     this.myMenu = document.querySelector('.context-menu-list');
+    this.mySubMenu = document.querySelectorAll('.context-submenu-list');
     document.addEventListener('contextmenu', (event) => {
       event.preventDefault();
       this.x = event.clientX;
@@ -105,13 +128,17 @@ export default {
 }
 </script>
 
+
+
+
+
 <style scoped>
 
 .rounded {
   border-radius: 5px;
 }
 
-.context-menu-list {
+.context-menu-list, .context-submenu-list {
   display: none;
   position: fixed;
   list-style: none;

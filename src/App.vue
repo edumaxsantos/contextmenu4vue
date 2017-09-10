@@ -37,6 +37,15 @@ export default {
         items: [{
           text: 'op1',
           icon: null,
+          submenu: {
+            items:[{
+              text: 'op1.1',
+              func() {}
+            }, {
+              text: 'op1.2',
+              func() {}
+            }]
+          },
           func() {
             console.log('im func 1');
           }
