@@ -3,7 +3,10 @@
 > Context Menus with [Vue.js](https://github.com/vuejs/vue) (vue2.4)
 
 # Warning
+**2018-12-17 - I'll be updating this project. It has been a long time since I created this repo and now I think it's time to get back to it.**
+---
 **This component is still being written so if it's not working the way you want, I'm still working on it.**
+
 
 # Menu
 * [Build Setup](#build-setup)
