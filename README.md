@@ -1,4 +1,4 @@
-# contextmenu2vue
+# contextmenu4vue
 
 > Context Menus with [Vue.js](https://github.com/vuejs/vue) (vue2.4)
 
