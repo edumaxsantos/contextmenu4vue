@@ -3,7 +3,7 @@
 > Context Menus with [Vue.js](https://github.com/vuejs/vue) (vue2.4)
 
 # Warning
-**2020-07-13 - I had some stuff to do and I was not able to keep this small project.
+## 2020-07-13 - I had some stuff to do and I was not able to keep this small project.
 
 # Warning
 **2018-12-17 - I'll be updating this project. It has been a long time since I created this repo and now I think it's time to get back to it.**
